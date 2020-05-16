@@ -1,0 +1,59 @@
+﻿@model IEnumerable<Azura.Models.Usuarios>
+
+@{
+    ViewBag.Title = "Index";
+}
+
+<h3>CLIENTES CADASTRADOS</h3>
+
+<p>
+    @Html.ActionLink("CADASTRAR CLIENTE", "Create")
+</p>
+<table class="table">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.NomeUsuario)
+        </th>
+       
+        <th>
+            @Html.DisplayNameFor(model => model.Cpf)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Cnpj)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Empresa)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Endereco)
+        </th>
+        <th></th>
+    </tr>
+
+@foreach (var item in Model) {
+    <tr>
+        <td>
+            @Html.DisplayFor(modelItem => item.NomeUsuario)
+        </td>
+        
+        <td>
+            @Html.DisplayFor(modelItem => item.Cpf)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Cnpj)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Empresa)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Endereco)
+        </td>
+        <td>
+            @Html.ActionLink("EDITAR", "Edit", new { id=item.Id }) |
+            @Html.ActionLink("DETALHES", "Details", new { id=item.Id }) |
+            @Html.ActionLink("EXCLUIR", "Delete", new { id=item.Id })
+        </td>
+    </tr>
+}
+
+</table>

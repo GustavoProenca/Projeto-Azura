@@ -1,0 +1,130 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AZURA ALIMENTOS</title>
+
+    @Styles.Render("~/Content/css")
+    @Scripts.Render("~/bundles/modernizr")
+
+<style>
+    #divbotao{
+    float:right;
+    position:center;
+    margin-top:8px;
+            }
+
+    #botaologin {
+
+    }
+    #botaocad {
+     
+    }
+
+
+    input[type="button"] {
+      
+        color: #fff;
+        
+        border: 1px solid #fff;
+      
+        text-shadow: 0 1px 1px #333;
+    }
+
+    #az {
+        color: orange;
+        font-size: 50px;
+        display: inline;
+    }
+    #ura {
+        color: white;
+        display:inline;
+        font-size: 50px;
+        padding-right :10px;
+    }
+    #logo {
+        display: inline;
+    }
+
+
+</style>
+
+</head>
+
+
+<body>
+    <div class="navbar navbar-inverse navbar-fixed-top">
+        
+      
+        <div class="container">
+            <div class="navbar-header">
+
+
+
+                <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                </button>
+                @*@Html.ActionLink("AZURA", "Index", "Home", new { area = "" }, new { @class = "navbar-brand" })*@
+                @*<img src="~/imagens/inicial/azuraicon.jpg" alt="doacao3" width="200" height="50">*@
+
+            <div id="logo">
+                <h1 id="az">Az</h1>
+                <h2 id="ura">ura</h2>
+            </div>
+            </div>
+
+            <div class="navbar-collapse collapse">
+
+                <ul class="nav navbar-nav">
+
+                    <li class="icones">@Html.ActionLink("AREA INICIAL", "Index", "Home")</li>
+                    <li class="icones">@Html.ActionLink("SOBRE", "About", "Home")</li>
+                    <li class="icones">@Html.ActionLink("CONTATO", "Contact", "Home")</li>
+                    <li class="icones">@Html.ActionLink("CLIENTES CADASTRADOS", "", "Clientes")</li>
+                    @*<li class="icones">@Html.ActionLink("MERCADO ONLINE", "Comprar", "Home")</li>*@
+
+
+
+
+                </ul>
+               
+                <div id="divbotao">
+                    <a id="botaologin " class="btn btn-primary" href="~/Home/Login" role="button">REALIZAR LOGIN</a>
+
+                    <a id="botaocad" class="btn btn-success" href="~/Clientes/Create" role="button">CADASTRE-SE</a>
+                </div>
+               
+                
+
+               
+               
+              
+                   
+                
+
+            </div>
+           
+            
+        </div>
+    </div>
+
+
+
+    <div class="container body-content">
+        @RenderBody()
+        <hr />
+        <footer>
+            <p>&copy; @DateTime.Now.Year - AZURA ASP.NET</p>
+        </footer>
+    </div>
+
+    @Scripts.Render("~/bundles/jquery")
+    @Scripts.Render("~/bundles/bootstrap")
+    @RenderSection("scripts", required: false)
+</body>
+</html>

@@ -1,0 +1,103 @@
+﻿@model Azura.Models.Usuario
+
+
+<style>
+
+
+   
+
+    input {
+        outline: none;
+        position: center;
+    }
+
+        /*estilo dos input,  menos o checkbox */
+        input:not([type="checkbox"]) {
+            width: 250px;
+            margin-top: 4px;
+            padding: 10px;
+            border: 1px solid #b2b2b2;
+            -webkit-border-radius: 3px;
+            border-radius: 3px;
+            -webkit-box-shadow: 0px 1px 4px 0px rgba(168, 168, 168, 0.6) inset;
+            box-shadow: 0px 1px 4px 0px rgba(168, 168, 168, 0.6) inset;
+            -webkit-transition: all 0.2s linear;
+            transition: all 0.2s linear;
+        }
+
+        /*estilo do botão submit */
+        input[type="submit"] {
+            width: 100%;
+            background-color:#ff6a00;
+            padding: 8px 5px;
+            color: #fff;
+            font-size: 20px;
+            border: 1px solid #fff;
+            margin-bottom: 10px;
+            text-shadow: 0 1px 1px #333;
+        }
+
+            /*estilo do botão submit no hover */
+            input[type="submit"]:hover {
+                background: #ff6a00;
+            }
+
+
+    #login {
+        background-color: #e1e1e1;
+        left: 56%;
+        margin: -130px 0 0 -210px;
+        padding: 10px;
+        position: fixed;
+        margin-top: 4%;
+        
+    }
+
+    #divCenter {
+        background-color: #e1e1e1;
+        left: 50%;
+        margin: -130px 0 0 -210px;
+        padding: 10px;
+        position: absolute;
+        margin-top: 7%;
+    }
+</style>
+<h2 id="login">LOGIN</h2>
+@using (Html.BeginForm("Login", "Home", FormMethod.Post))
+{
+    //cria a tag do formulário
+    @Html.AntiForgeryToken() // previne o ataque CSRF
+    @Html.ValidationSummary(true)
+    if (@ViewBag.Message != null)
+    {
+        <div style="border:1px solid red">
+            @ViewBag.Message
+        </div>
+    }
+    <table id="divCenter">
+
+        <tr>
+
+            <td>@Html.LabelFor(a => a.NomeUsuario)</td>
+            <td>@Html.TextBoxFor(a => a.NomeUsuario)</td>
+            <td>@Html.ValidationMessageFor(a => a.NomeUsuario)</td>
+
+        </tr>
+        <tr>
+            <td> @Html.LabelFor(a => a.Senha)</td>
+            <td> @Html.PasswordFor(a => a.Senha) </td>
+            <td> @Html.ValidationMessageFor(a => a.Senha) </td>
+        </tr>
+        <tr>
+            <td></td>
+            <td>
+                <input type="submit" value="Efetuar Login" />
+            </td>
+            <td></td>
+        </tr>
+    </table>
+}
+@section Scripts{
+    @Scripts.Render("~/bundles/jqueryval")
+}
+
